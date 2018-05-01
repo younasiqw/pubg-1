@@ -128,8 +128,10 @@ vapp = new Vue({
       if (this.showAmmo762) {
         flags |= 0b00000000000000000000001000000000
       }
-      if (this.showForeGrip) {
+       if (this.showForeGrip) {
+
         flags |= 0b10000000000000000000000000000000
+  
       }
       if (this.showLowST) {
         flags |= 0b00000000010000000000000000000000
@@ -199,7 +201,7 @@ vapp = new Vue({
       }
     },
     setFPS (fps) {
-      appData.refreshInterval = Math.floor(1000 / fps)
+      appData.refreshInterval = Math.floor(1000 / 30)
     },
     showNoItems () {
       this.showItemAll = this.showItemDuoDuo = this.showItemTop = this.showItemBasic = this.showItemAR = this.showItemSR = this.showItemHealth = this.showItemThrow = this.showItemAmmo = this.showItemAll = false
@@ -649,14 +651,14 @@ const renderMap = () => {
       )
     } else { // enemy
       if (playerObj.team) {
-        //label = `${playerObj.team}`
+        label = `${playerObj.team}`
       } else if (playerObj.name) {
         label = playerObj.name
       } else {
         //label = `<${playerObj.guid}>`
       }
       if (playerObj.kills) {
-        label += ` Kill${playerObj.kills}`
+        //label += ` Kill${playerObj.kills}`
       }
     }
     if (playerObj.health != null) {
